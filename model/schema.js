@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
-const schema = new mongoose.Schema({
-    fullname:{
+const UserSchema = new mongoose.Schema({
+    userName:{
         type: 'string',
         required: true,
     },
@@ -15,9 +15,10 @@ const schema = new mongoose.Schema({
     },
     date:{
         type: 'date',
-        default: date.now
+        default: Date.now
     }
 
 })
 
-module.exports = mongoose.model('UserDetails', schema)
+const UserDetails =  mongoose.model('UserDetails', UserSchema)
+export default UserDetails;
