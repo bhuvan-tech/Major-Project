@@ -2,6 +2,7 @@ import express from 'express';
 const authRouter = express.Router();
 import UserDetails from '../model/schema.js'
 import {addUser} from '../controller/auth.js'
+
 authRouter.get('/', async (req, res) => {
     try{
     const newUser = await UserDetails.find() 
@@ -12,5 +13,5 @@ authRouter.get('/', async (req, res) => {
     }
 })
 
-authRouter.post('/adduser', addUser)
+authRouter.post('/addUser', addUser)
 export default  authRouter;

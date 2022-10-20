@@ -3,15 +3,15 @@ import mongoose from 'mongoose';
 const UserSchema = new mongoose.Schema({
     username:{
         type: 'string',
-        required: true,
+        required: [true, 'User Name is required']
     },
     number:{
         type: 'number',
-        required: true
+        required: [true, 'Number is required']
     },
     password:{
         type: 'string',
-        required: true
+        required: [true, 'Password is required']
     },
     date:{
         type: 'date',
