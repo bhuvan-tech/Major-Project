@@ -12,4 +12,9 @@ const loadEnv = (key) => {
 // db config 
 const DB_ACCESS = loadEnv(process.env.DB_ACCESS);
 
-export { DB_ACCESS };
+//hasing
+
+const salt = loadEnv(process.env.SALT);
+const SALT = parseInt(salt)
+
+export { DB_ACCESS,SALT};
