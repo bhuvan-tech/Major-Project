@@ -1,17 +1,18 @@
 import express from 'express';
-const authRouter = express.Router();
-import UserDetails from '../model/schema.js'
-import {addUser} from '../controller/auth.js'
+const router = express.Router();
+import {getUsers, addUser, getUserById, updateUser, deleteUser} from '../controller/auth.js'
 
-authRouter.get('/', async (req, res) => {
-    try{
-    const newUser = await UserDetails.find() 
-    res.send(newUser)
-    }
-    catch(err){
-        console.log(err);
-    }
-})
+// 127.0.0.1/api/users
+router
+    .route('/users')
+    .get(getUsers)
+    .post(addUser)
 
-authRouter.post('/addUser', addUser)
-export default  authRouter;
+    // 127.0.0.1/api/users/6351e3fb583bae833afb4a13
+router
+    .route('/users/:id')
+    .get(getUserById)
+    .patch(updateUser)
+    .delete(deleteUser)
+
+export default router;

@@ -12,13 +12,14 @@
     "type": "git",
     "url": "git+https://github.com/bhuvan-tech/Major-Project.git"
   },
-  "author": "",
+  "author": "Brutal Squad",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bhuvan-tech/Major-Project/issues"
   },
   "homepage": "https://github.com/bhuvan-tech/Major-Project#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -26,6 +27,7 @@
     "moongose": "^1.0.0"
   },
   "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.20"
   }
 }
