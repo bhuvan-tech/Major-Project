@@ -2,19 +2,19 @@ import {SALT} from '../config/config.js'
 import userDetails from '../model/schema.js'
 import { successResponse } from '../interceptor/success.js';
 import { errorResponse } from '../interceptor/error.js';
+import jwtGenerator from '../utils/tokengenertor.js';
 import bcrypt from 'bcrypt'
 
 // ADD NEW USER
 const addUser = async (req,res) => {
     // variable names for front end are - name, password, number
     let {name,number,password} = req.body;
-
     try{ 
         //checking whether the user is already exists
-        userDetails.find( { username : username }, async (err,data)=>{
-            var keycount  = Object.keys(data).length;
+        const keyCount = await userDetails.find({number:number});
+            console.log(keyCount);
             //if the user is already return the response
-            if(keycount > 0){
+            if(keyCount.length > 0){
                 return errorResponse(res,406,"User already exists")
             }
             else{
@@ -30,15 +30,39 @@ const addUser = async (req,res) => {
                 user.password = bcryptPassword;
                 
                 user.save()
-                return successResponse(res,201,`${user.username} User added`);
+                return successResponse(res,201,`User added Successfully`);
             }
-        });
 
     } catch(err){ 
-        errorResponse(res,500,err);
+        return errorResponse(res,500,err);
     }
 }     
 
+
+const login = async(req, res) => {
+    try{
+    let {number,password} = req.body;
+    const user = await userDetails.find({number:number});
+    if(user.length === 0){
+        return errorResponse(res,406,"User Not Found");
+    }
+    console.log(user[0]);
+    const validPassword = await bcrypt.compare(
+        password,
+        user[0].password
+    )
+    if(!validPassword){
+        return errorResponse(res,400,"invalid password")
+    }
+    const token = jwtGenerator(user[0]._id,user[0].username,user[0].number);
+    console.log(token);
+    return successResponse(res,200,"success login");
+}
+catch(err){
+    return errorResponse(res,500,err);
+}
+
+}
 // GET ALL USERS
 const getUsers = async(req, res) => {
     try{
@@ -85,4 +109,4 @@ const deleteUser = async(req, res) => {
         }
 }
 
-export {getUsers, addUser, getUserById, updateUser, deleteUser};
+export {getUsers, addUser, getUserById, updateUser, deleteUser,login};

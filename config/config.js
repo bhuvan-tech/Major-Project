@@ -17,4 +17,8 @@ const DB_ACCESS = loadEnv(process.env.DB_ACCESS);
 const salt = loadEnv(process.env.SALT);
 const SALT = parseInt(salt)
 
-export { DB_ACCESS,SALT};
+//token config
+const JWT_SECRET= loadEnv(process.env.JWTSECRET); 
+const TOKEN_EXPIRY =  loadEnv(process.env.TOKEN_EXPIRY);
+
+export { DB_ACCESS,SALT,JWT_SECRET,TOKEN_EXPIRY};
