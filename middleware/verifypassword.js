@@ -14,8 +14,8 @@ schema
 
 const validatePassword = function(req,res,next){
     try{
-    const {newpassword} = req.body;
-    if(schema.validate(newpassword)){
+    const {password} = req.body;
+    if(schema.validate(password)){
         next();
     }
     else{
