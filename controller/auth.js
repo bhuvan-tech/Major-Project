@@ -46,7 +46,6 @@ const login = async(req, res) => {
     if(user.length === 0){
         return errorResponse(res,406,"User Not Found");
     }
-    console.log(user[0]);
     const validPassword = await bcrypt.compare(
         password,
         user[0].password
@@ -56,7 +55,7 @@ const login = async(req, res) => {
     }
     const token = jwtGenerator(user[0]._id,user[0].username,user[0].number);
     console.log(token);
-    return successResponse(res,200,"success login");
+    return successResponse(res,200, token);
 }
 catch(err){
     return errorResponse(res,500,err);
