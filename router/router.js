@@ -18,6 +18,6 @@ router
     .delete(deleteUser)
 
 router.post('/login',validatePassword,valid, login);
-router.post('/adduser',valid, addUser)
+router.post('/adduser',validatePassword,valid, addUser)
 
 export default router;
