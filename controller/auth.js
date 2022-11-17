@@ -12,7 +12,6 @@ const addUser = async (req,res) => {
     try{ 
         //checking whether the user is already exists
         const keyCount = await userDetails.find({number:number});
-            console.log(keyCount);
             //if the user is already return the response
             if(keyCount.length > 0){
                 return errorResponse(res,406,"User already exists")
@@ -54,7 +53,6 @@ const login = async(req, res) => {
         return errorResponse(res,400,"invalid password")
     }
     const token = jwtGenerator(user[0]._id,user[0].username,user[0].number);
-    console.log(token);
     return successResponse(res,200, token);
 }
 catch(err){
