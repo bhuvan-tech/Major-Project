@@ -13,5 +13,5 @@ const AnswerSchema = new mongoose.Schema({
   user: Object,
 });
 
-const answer =  mongoose.model('question', AnswerSchema)
-export default AnswerSchema;
+const answerDetails =  mongoose.model('answer', AnswerSchema)
+export default answerDetails;

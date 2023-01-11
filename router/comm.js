@@ -7,6 +7,6 @@ comm.get("/", (req, res) => {
 
 comm.post("/addQuestion",addQuestion)
 comm.get("/viewQuestion", viewQuestion)
-comm.get("/addAnswer", addAnswer)
+comm.post("/addAnswer", addAnswer)
 
 export default comm;
