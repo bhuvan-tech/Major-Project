@@ -19,5 +19,7 @@ router
 
 router.post('/login',validatePassword,valid, login);
 router.post('/adduser',validatePassword,valid, addUser)
-
+router.get('/comm',(req,res)=>{
+    res.send("comm");
+})
 export default router;

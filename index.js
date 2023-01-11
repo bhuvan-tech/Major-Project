@@ -1,5 +1,6 @@
 import express from 'express';
 import router from './router/router.js';
+import comm from './router/comm.js';
 import mongoose from 'mongoose';
 import {DB_ACCESS} from './config/config.js';
 import cors from 'cors';
@@ -27,5 +28,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 app.use("/api/", router);
+app.use("/comm/",comm)
 
 app.listen(port, () => console.log(`server started  ${port}!`))
