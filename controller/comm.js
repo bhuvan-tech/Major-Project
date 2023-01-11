@@ -1,6 +1,7 @@
 import { successResponse } from '../interceptor/success.js';
 import { errorResponse } from '../interceptor/error.js';
 import questionDetails from '../model/question.js';
+import answerDetails from '../model/answer.js';
 const addQuestion = async (req, res) => {
     console.log(req.body);
   
@@ -49,7 +50,7 @@ const viewQuestion = async (req, res) => {
   };
   const addAnswer = async (req, res) => {
     try {
-      await answerDB
+      await answerDetails
         .create({
           answer: req.body.answer,
           questionId: req.body.questionId,
