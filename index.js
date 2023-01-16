@@ -27,7 +27,6 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
-app.use("/api/", router);
-app.use("/comm/",comm)
+app.use("/api/", router,comm);
 
 app.listen(port, () => console.log(`server started  ${port}!`))

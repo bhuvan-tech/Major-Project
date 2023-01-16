@@ -3,8 +3,6 @@ import { errorResponse } from '../interceptor/error.js';
 import questionDetails from '../model/question.js';
 import answerDetails from '../model/answer.js';
 const addQuestion = async (req, res) => {
-    console.log(req.body);
-  
     try {
       await questionDetails
         .create({
@@ -59,9 +57,7 @@ const viewQuestion = async (req, res) => {
         .then(
           successResponse(res,201,"Answer added successfully")
         )
-        .catch(
-          errorResponse(res,500,"Bad request")
-        )
+        
     } catch (err) {
         errorResponse(res,500,"Error while adding answer ");
       }
