@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+//Schema used for sign in and sign up
 const userSchema = new mongoose.Schema({
     username:{
         type: String,

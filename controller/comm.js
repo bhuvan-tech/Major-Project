@@ -2,6 +2,7 @@ import { successResponse } from '../interceptor/success.js';
 import { errorResponse } from '../interceptor/error.js';
 import questionDetails from '../model/question.js';
 import answerDetails from '../model/answer.js';
+//used for adding question in the community section
 const addQuestion = async (req, res) => {
     try {
       await questionDetails
@@ -20,6 +21,7 @@ const addQuestion = async (req, res) => {
         errorResponse(res,404,err);
     }
   };
+  //it is used for viewing the question along with answer
 const viewQuestion = async (req, res) => {
     try {
       await questionDetails
@@ -46,6 +48,7 @@ const viewQuestion = async (req, res) => {
       errorResponse(res,500,err);
     }
   };
+  //used for adding answer in the community section
   const addAnswer = async (req, res) => {
     try {
       await answerDetails
