@@ -1,6 +1,7 @@
 const data = {
   products: [
     {
+      _id: '1',
       name: 'Tractors',
       slug: 'Tractor-Mahindra',
       category: 'Vehicle',
@@ -13,6 +14,7 @@ const data = {
       description: 'high power tractor',
     },
     {
+      _id: '2',
       name: 'Hoes',
       slug: 'To Dig',
       category: 'Hand Use',
@@ -26,6 +28,7 @@ const data = {
         'Shovels are used for digging, lifting, and moving bulk materials, such as dirt, coal, gravel, sand, and snow.',
     },
     {
+      _id: '3',
       name: 'Sprinklers',
       slug: 'sprinklers',
       category: 'Land',
@@ -39,6 +42,7 @@ const data = {
         'Sprinklers are used to irrigate (water) agricultural crops, lawns, landscapes, golf courses, and other areas. Aside from cooling, they also control dust in the air.',
     },
     {
+      _id: '4',
       name: 'Seeders',
       slug: 'seeder',
       category: 'Land seeds planter',
