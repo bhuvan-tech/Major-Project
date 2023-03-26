@@ -8,10 +8,10 @@ import bcrypt from 'bcrypt'
 // ADD NEW USER
 const addUser = async (req,res) => {
     // variable names for front end are - name, password, number
-    let {name,number,password} = req.body;
+    let {name,phone,password} = req.body;
     try{ 
         //checking whether the user is already exists
-        const keyCount = await userDetails.find({number:number});
+        const keyCount = await userDetails.find({number:phone});
             //if the user is already return the response
             if(keyCount.length > 0){
                 return errorResponse(res,406,"User already exists")
@@ -25,7 +25,7 @@ const addUser = async (req,res) => {
                 //adding new object into DB
                 
                 user.username = name;
-                user.number= number;
+                user.number= phone;
                 user.password = bcryptPassword;
                 
                 user.save()
@@ -40,8 +40,8 @@ const addUser = async (req,res) => {
 
 const login = async(req, res) => {
     try{
-    let {number,password} = req.body;
-    const user = await userDetails.find({number:number});
+    let {phone,password} = req.body;
+    const user = await userDetails.find({number:phone});
     if(user.length === 0){
         return errorResponse(res,406,"User Not Found");
     }
