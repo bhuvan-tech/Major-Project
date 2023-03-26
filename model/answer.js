@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-
+//Schema for answer queries
 const AnswerSchema = new mongoose.Schema({
   answer: String,
   questionId: {
