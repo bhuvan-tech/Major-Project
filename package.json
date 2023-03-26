@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "moongose": "^1.0.0",
     "password-validator": "^5.3.0",
+    "react-scripts": "^5.0.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {
