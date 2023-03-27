@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+//schema for Question
 const QuestionSchema = new mongoose.Schema({
   questionName: String,
   questionUrl: String,
