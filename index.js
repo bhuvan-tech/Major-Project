@@ -2,7 +2,7 @@ import express from 'express';
 import router from './router/router.js';
 import comm from './router/comm.js';
 import mongoose from 'mongoose';
-import {DB_ACCESS} from './config/config.js';
+import {DB_ACCESS,PORT} from './config/config.js';
 import cors from 'cors';
 import morgan from 'morgan'
 
@@ -19,7 +19,7 @@ mongoose.connect(
 
 
 const app = express()
-const port = 3000
+
 
 if(process.env.NODE_ENV ===  'development')
 app.use(morgan('dev'));
@@ -29,4 +29,4 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/", router,comm);
 
-app.listen(port, () => console.log(`server started  ${port}!`))
+app.listen(PORT, () => console.log(`server started  ${PORT}!`))
