@@ -16,7 +16,7 @@ const data = {
     {
       _id: '2',
       name: 'Hoes',
-      slug: 'To Dig',
+      slug: 'To-Dig',
       category: 'Hand Use',
       image: '/images/p2.jpg',
       price: 250,

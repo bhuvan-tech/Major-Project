@@ -56,6 +56,10 @@ main {
   max-width: 100%;
 }
 
+.img-thumbnail {
+  height: 80px;
+}
+
 /* .site-container {
   min-height: 100vh;
 }
