@@ -7,9 +7,7 @@ schema
 .is().max(20)                      // Maximum length 20
 .has().uppercase(1)               // Must have uppercase letters
 .has().lowercase(1)              // Must have lowercase letters
-.has().digits(1)                // Must have at least 1 digits
-.has().not().spaces()          // Should not have spaces
-.has().symbols(1)             //  Must have atleast one symbol
+
 
 
 const validatePassword = function(req,res,next){
