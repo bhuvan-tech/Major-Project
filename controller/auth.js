@@ -53,7 +53,8 @@ const login = async(req, res) => {
         return errorResponse(res,400,"invalid password")
     }
     const token = jwtGenerator(user[0]._id,user[0].username,user[0].number);
-    return successResponse(res,200, token);
+    res.cookie(token)
+    return successResponse(res,200,"user login successful")
 }
 catch(err){
     return errorResponse(res,500,err);
