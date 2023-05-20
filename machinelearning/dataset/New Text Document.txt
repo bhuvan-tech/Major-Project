@@ -1,0 +1,5 @@
+dataset taken for crop recommendation:
+https://www.kaggle.com/datasets/atharvaingle/crop-recommendation-dataset?resource=download&select=Crop_recommendation.csv
+
+dataset taken for fertilizer prediction:
+https://www.kaggle.com/datasets/gdabhishek/fertilizer-prediction

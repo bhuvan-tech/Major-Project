@@ -1,7 +1,12 @@
 import express from 'express';
-import authRouter from './router/router.js';
+import router from './router/router.js';
+import comm from './router/comm.js';
 import mongoose from 'mongoose';
-import {DB_ACCESS} from './config/config.js';
+import {DB_ACCESS,PORT} from './config/config.js';
+import cors from 'cors';
+import morgan from 'morgan'
+import cookieParser from 'cookie-parser';
+
 mongoose.connect(
     DB_ACCESS, 
     {
@@ -15,12 +20,15 @@ mongoose.connect(
 
 
 const app = express()
-const port = 3000
 
+
+if(process.env.NODE_ENV ===  'development')
+app.use(morgan('dev'));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
-app.use("/api/", authRouter);
+app.use("/api/", router,comm);
 
-async function started() {
-    const client = new MongoClient()
-}
-app.listen(port, () => console.log(`server started  ${port}!`))
+app.listen(PORT, () => console.log(`server started  ${PORT}!`))

@@ -1,23 +1,24 @@
 import mongoose from 'mongoose';
-
-const schema = new mongoose.Schema({
-    fullname:{
-        type: 'string',
-        required: true,
+//Schema used for sign in and sign up
+const userSchema = new mongoose.Schema({
+    username:{
+        type: String,
+        required: [true, 'User Name is required']
     },
     number:{
-        type: 'number',
-        required: true
+        type: Number,
+        required: [true, 'Number is required']
     },
     password:{
-        type: 'string',
-        required: true
+        type: String,
+        required: [true, 'Password is required']
     },
     date:{
-        type: 'date',
-        default: date.now
+        type: Date,
+        default: Date.now
     }
 
 })
 
-module.exports = mongoose.model('UserDetails', schema)
+const userDetails =  mongoose.model('userDetails', userSchema)
+export default userDetails;
